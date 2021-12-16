@@ -18,8 +18,8 @@ export const loginAction = (user) => (dispatch) => {
       });
     });
 };
-export const logoutAction = (username) => async (dispatch) => {
-  const result = await axios.patch(`http://localhost:8080/logout/${username}`);
+export const logoutAction = (email) => async (dispatch) => {
+  const result = await axios.patch(`http://localhost:8080/logout/${email}`);
   console.log(result);
   const res = result.data;
   res.errMsg = "";

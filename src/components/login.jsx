@@ -20,7 +20,7 @@ import {
 class Login extends React.Component {
   state = {
     user: {
-      username: "",
+      email: "",
       password: "",
       role: "",
     },
@@ -35,12 +35,12 @@ class Login extends React.Component {
     console.log("handleSubmit");
     // dispatch login action
     this.props.loginAction(this.state.user);
-    console.log("handleSuccessfull");
+
     // Redirect to products page on successfull login
     if (this.props.login.loggedIn) {
-      this.props.history.push("/home");
+      this.props.history.push("/doctors");
     }
- };
+  };
   render() {
     return (
       <div
@@ -61,13 +61,13 @@ class Login extends React.Component {
           >
             <TextField
               id="filled-basic"
-              label="Username"
+              label="Email"
               variant="filled"
-              type="text"
+              type="email"
               style={{ marginBottom: 10 }}
               fullWidth
-              value={this.state.username}
-              name="username"
+              value={this.state.email}
+              name="email"
               onChange={this.handleChange}
             />
             <TextField
@@ -93,8 +93,8 @@ class Login extends React.Component {
                 <MenuItem value="">
                   <em>None</em>
                 </MenuItem>
-                <MenuItem value="employee">Doctor</MenuItem>
-                <MenuItem value="donor">Patient</MenuItem>
+                <MenuItem value="doctor">Doctor</MenuItem>
+                <MenuItem value="patient">Patient</MenuItem>
                 <MenuItem value="admin">Admin</MenuItem>
               </Select>
             </FormControl>

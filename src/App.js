@@ -24,6 +24,9 @@ import UpdatePolicy from "./components/policy/updateInsurance";
 import UpdatePatientPersonalDetails from "./components/patientDetails/updatePatientDetails";
 import AddPatientPersonalDetails from "./components/patientDetails/addPatientDetails";
 import PatientPersonalDetails from "./components/patientDetails/patientDetails";
+import UpdateBill from "./components/finance/updateBill";
+import AddBill from "./components/finance/addBill";
+import Finance from "./components/finance/finance";
 
 function App() {
   return (
@@ -47,7 +50,10 @@ function App() {
         <Route path="/addinsurance" component={AddInsurance}/>
         <Route path="/patient/update/:pId" component={UpdatePatientPersonalDetails}/>
         <Route path="/patient/add" component={AddPatientPersonalDetails}/>
-        <Route path="/patient" component={PatientPersonalDetails} />    
+        <Route path="/patient" component={PatientPersonalDetails} />  
+        <Route path="/finance/update/:bId" component={UpdateBill} />
+        <Route path="/finance/add" component={AddBill} />
+        <Route path="/finance" component={Finance} />  
         <Route path="/admin" component={Admin} />
         <Route path="/logout" component={Logout} />
         <Redirect exact path="/" to="/home" />

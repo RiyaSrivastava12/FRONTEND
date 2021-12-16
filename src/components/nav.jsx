@@ -16,13 +16,13 @@ const Nav = () => {
              <h3>HSM</h3> 
             </Button>
 
-            <Button
+     { /*      <Button
               color="inherit"
               to="/doctors"
               component={NavLink}
             >
               Doctors
-            </Button>
+            </Button> */}
 
             <Button
             color="inherit"
@@ -39,13 +39,20 @@ const Nav = () => {
           >
             Policy
           </Button>
-          <Button
+       {/*   <Button
             color="inherit"
             to="/patient"
             component={NavLink}
           >
             Patient-Details
-          </Button>
+       </Button> 
+          <Button
+            color="inherit"
+            to="/finance"
+            component={NavLink}
+          >
+            Finance
+          </Button> */}
 
             <Button
             color="inherit"

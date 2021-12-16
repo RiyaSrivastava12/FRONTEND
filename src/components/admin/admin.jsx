@@ -45,7 +45,7 @@ class Admin extends React.Component {
                   </p>
                   <Button
                     color="inherit"
-                    to="/finances"
+                    to="/finance"
                     component={NavLink}
                     style={{ marginRight: "auto" }}
                   >
