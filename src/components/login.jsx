@@ -4,6 +4,7 @@ import React, { Component } from "react";
 
 import { connect } from "react-redux";
 import { loginAction } from "../actions/loginaction";
+import Joi from "joi-browser";
 
 import {
   TextField,
@@ -24,7 +25,33 @@ class Login extends React.Component {
       password: "",
       role: "",
     },
+    errors: {},
+    errMsg: "",
   };
+
+  // define schema to validate input field values
+  schema = {
+    email: Joi.string().min(3).max(20).required(),
+   password: Joi.string().min(3).max(20).required(),
+    role: Joi.string().min(1).max(20).required(),
+  };
+  // Step 3: Validate user input with schema
+  validate = () => {
+    const errors = {};
+    const result = Joi.validate(this.state.login, this.schema, {
+      abortEarly: false,
+    });
+    console.log(result);
+    // setting error messages to error properties
+    // ex: errors[username] = "username is required";
+    // ex: errors[password] = "password is required";
+    if (result.error != null)
+      for (let item of result.error.details) {
+        errors[item.path[0]] = item.message;
+      }
+    return Object.keys(errors).length === 0 ? null : errors;
+  };
+
   handleChange = (event) => {
     const usr = { ...this.state.user };
     usr[event.target.name] = event.target.value;
@@ -38,10 +65,11 @@ class Login extends React.Component {
 
     // Redirect to products page on successfull login
     if (this.props.login.loggedIn) {
-      this.props.history.push("/doctors");
+      this.props.history.push("/admin");
     }
   };
   render() {
+    const { errors, errMsg } = this.state;
     return (
       <div
         style={{
@@ -69,7 +97,9 @@ class Login extends React.Component {
               value={this.state.email}
               name="email"
               onChange={this.handleChange}
+              required
             />
+             {errors && <small>{errors.email}</small>}
             <TextField
               id="filled-basic"
               label="Password"
@@ -80,7 +110,9 @@ class Login extends React.Component {
               value={this.state.password}
               name="password"
               onChange={this.handleChange}
+              required
             />
+             {errors && <small>{errors.password}</small>}
             <FormControl variant="filled" fullWidth>
               <InputLabel id="demo-simple-select-filled-label">Role</InputLabel>
               <Select
@@ -89,6 +121,7 @@ class Login extends React.Component {
                 value={this.state.role}
                 name="role"
                 onChange={this.handleChange}
+                required
               >
                 <MenuItem value="">
                   <em>None</em>

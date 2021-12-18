@@ -45,6 +45,7 @@ class Treatment extends React.Component {
               <th>Reports</th>
               <th>Medicines</th>
               <th>Description</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>

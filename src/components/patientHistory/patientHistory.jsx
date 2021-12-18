@@ -49,8 +49,9 @@ class PatientHistory extends React.Component {
             <tr className="shadow-sm p-3 mb-5 bg-body rounded">
               <th>Patient_History_Id</th>
               <th>Disease</th>
-              <th>dAdvice</th>
-              <th>diet</th>
+              <th>Doctor_Advice</th>
+              <th>Diet</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>

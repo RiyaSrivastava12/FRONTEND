@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 class Doctor extends React.Component {
   state = {
@@ -26,7 +28,7 @@ class Doctor extends React.Component {
         // Update front end parallely
         const doctors = this.state.doctors.filter((d) => d.id != id);
         this.setState({ doctors: doctors });
-        alert("Doctor deleted succussfully!");
+        alert(" Doctor with id "+ id +" deleted succussfully!");
       })
       .catch((err) => console.log(err));
   };
@@ -37,6 +39,10 @@ class Doctor extends React.Component {
       <Link to="/doctors/add" className="btn btn-info float-end">
       Add
     </Link>
+    <Link to="/admin" className="btn btn-dark float-start">
+    <ArrowBackIcon />
+      Admin
+    </Link>
 
         <table className="table table-success table-striped table-bordered border-dark  ">
           <thead>
@@ -46,7 +52,8 @@ class Doctor extends React.Component {
               <th>Specialization</th>
               <th>Qualification</th>
               <th>Availability</th>
-              <th>Actions</th>
+              {this.props.login.loggedIn &&
+                this.props.login.role === "admin" && <th>Actions</th>}
             </tr>
           </thead>
           <tbody>
@@ -57,6 +64,7 @@ class Doctor extends React.Component {
                 <td>{d.specialization}</td>
                 <td>{d.qualification}</td>
                 <td>{d.availability}</td>
+                {this.props.login.loggedIn && this.props.login.role == "admin" && (
                 <td>
                   <Link
                     to={`/doctors/update/${d.id}`}
@@ -71,6 +79,7 @@ class Doctor extends React.Component {
                     Delete
                   </button>
                 </td>
+                )}
               </tr>
             ))}
           </tbody>
@@ -80,4 +89,11 @@ class Doctor extends React.Component {
   }
 }
 
-export default Doctor;
+// funtion to get updates from store
+const mapStateToProps = (state) => {
+  return {
+    login: state.login,
+  };
+};
+
+export default connect(mapStateToProps)(Doctor);

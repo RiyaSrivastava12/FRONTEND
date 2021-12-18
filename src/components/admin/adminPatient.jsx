@@ -10,14 +10,14 @@ import CardMedia from "@mui/material/CardMedia";
 import { CardActionArea } from "@mui/material";
 import { margin, textAlign } from "@mui/system";
 
-class Admin extends React.Component {
+class AdminPatient extends React.Component {
   render() {
     return (
       <div>
-        <section class="key-features" style={{backgroundImage:"url('images/admin1.jpg')"}}>
+        <section class="key-features" style={{backgroundImage:"url('images/admin.jpg')"}}>
         <div class="container">
           <div class="inner-title">
-            <h2 style={{ textAlign: "center",color:"white" }}>ADMIN PAGE</h2>
+            <h2 style={{ textAlign: "center" }}>Patient Dashboard</h2>
             <p style={{ textAlign: "center" }}>
              
             </p>
@@ -26,16 +26,16 @@ class Admin extends React.Component {
           <div class="row">
             <div class="col-md-4 col-sm-6">
               <div class="single-key">
-              <img src="images/doctor.jpg" class="card-img-top" alt="..." style={{height: "280px"}}/>
-                <h5>Manage Doctor Details Here</h5>
+              
+                <h5>Patient Personal Details</h5>
                  
                 <Button
                     color="inherit"
-                    to="/doctors"
+                    to="/patient"
                     component={NavLink}
                     style={{ marginRight: "auto" }}
                   >
-                  <h5 class="card-title bg-primary" style={{height: "30px", textAlign: "center", color: "white",margin:"auto"}}> Doctor</h5>
+                  <h5 class="card-title bg-primary" style={{height: "30px", textAlign: "center", color: "white",margin:"auto"}}> Click</h5>
                   </Button>
               
               </div>
@@ -43,13 +43,12 @@ class Admin extends React.Component {
 
             <div class="col-md-4 col-sm-6">
               <div class="single-key">
-              <img src="images/bills.jpg" class="card-img-top" alt="..." style={{height: "280px"}}/>
                
-                <h5>Manage Bills Details Here</h5>
+                <h5>Patient-History Details</h5>
                  
                 <Button
                     color="inherit"
-                    to="/finance"
+                    to="/patientHistories"
                     component={NavLink}
                     style={{ marginRight: "auto" }}
                   >
@@ -58,7 +57,7 @@ class Admin extends React.Component {
                       variant="subtitle2"
                       component="div"
                     >
-                    <h5 class="card-title bg-primary" style={{height: "30px", textAlign: "center", color: "white"}}> Bills </h5>
+                    <h5 class="card-title bg-primary" style={{height: "30px", textAlign: "center", color: "white"}}> Click </h5>
                     </Typography>
                   </Button>
                 
@@ -67,12 +66,12 @@ class Admin extends React.Component {
 
             <div class="col-md-4 col-sm-6">
               <div class="single-key">
-              <img src="images/patient.jpg" class="card-img-top" alt="..." style={{height: "280px"}}/>
-              <h5>Manage Patients Details Here</h5>
+              
+              <h5>Patient Treatment Details</h5>
                  
               <Button
                     color="inherit"
-                    to="/adminPatient"
+                    to="/treatments"
                     component={NavLink}
                     style={{ marginRight: "auto" }}
                   >
@@ -81,7 +80,7 @@ class Admin extends React.Component {
                       variant="subtitle2"
                       component="div"
                     >
-                    <h5 class="card-title bg-primary" style={{height: "30px", textAlign: "center", color: "white"}}> Patient </h5>
+                    <h5 class="card-title bg-primary" style={{height: "30px", textAlign: "center", color: "white"}}> Click </h5>
                     </Typography>
                   </Button>
               </div>
@@ -94,4 +93,4 @@ class Admin extends React.Component {
   }
 }
 
-export default Admin;
+export default AdminPatient;

@@ -77,8 +77,8 @@ class AddDoctors extends React.Component {
     const { dname, specialization, qualification,availability} = this.state.doctor;
     const { errors, errMsg } = this.state;
     return (
-      <div className="w-50 mx-auto ">
-        <h3 className="fw-bolder">Add Doctor</h3>
+      <div className="w-50 mx-auto "style={{ backgroundColor: "#40b9e6" , marginTop: "10px"}}>
+        <h3 className="fw-bolder" style={{ textAlign: "center"}}>Add Doctor</h3>
         {errMsg && (
           <div className="alert alert-danger" role="alert">
             {errMsg}
@@ -87,10 +87,11 @@ class AddDoctors extends React.Component {
         <form
           onSubmit={this.handleSubmit}
           className="shadow p-3 mb-5 bg-body rounded mt-3"
+          style={{ backgroundColor: "#d1c4e9" }}
         >
-        <div className="mb-3">
+        <div className="mb-3" >
         <label htmlFor="dname" className="form-label">
-          Doctor Name
+         <b>Doctor Name</b> 
         </label>
         <input
           type="text"
@@ -107,7 +108,7 @@ class AddDoctors extends React.Component {
           
       <div className="mb-3">
       <label htmlFor="specialization" className="form-label">
-        Specialization
+       <b>Specialization</b> 
       </label>
       <input
         type="text"
@@ -124,7 +125,7 @@ class AddDoctors extends React.Component {
          
     <div className="mb-3">
     <label htmlFor="qualification" className="form-label">
-     Qualification
+     <b>Qualification</b>
     </label>
     <input
       type="text"
@@ -140,7 +141,7 @@ class AddDoctors extends React.Component {
             
   <div className="mb-3">
   <label htmlFor="availability" className="form-label">
-   Availability
+   <b>Availability</b>
   </label>
   <input
     type="text"
@@ -156,7 +157,7 @@ class AddDoctors extends React.Component {
           
           
           <div className="d-grid gap-2 mt-3">
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary"  style={{ backgroundColor: "#327da8", width: "30%",margin: "auto" }}>
               Submit
             </button>
           </div>

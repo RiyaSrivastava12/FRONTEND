@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+
 class Finance extends React.Component {
   state = {
     bills: [],
@@ -40,9 +42,13 @@ class Finance extends React.Component {
   render() {
     return (
       <div className="table w-50 mx-auto">
+        <Link to="/admin" className="btn btn-dark float-start mt-3 mb-3">
+          <ArrowBackIcon />
+          Admin
+        </Link>
         <Link
           to="/finance/add"
-          className="btn btn-dark float-middle w-50 mt-3 mb-3"
+          className="btn btn-dark float-end w-50 mt-3 mb-3"
           style={{
             backgroundColor: "#673ab7",
             opacity: "0.9",

@@ -11,7 +11,7 @@ const Logout = () => {
   // Dispatch logout action at the of page loading
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(logoutAction(login.username));
+    dispatch(logoutAction(login.email));
   }, []);
 
   return (
@@ -20,5 +20,4 @@ const Logout = () => {
     </div>
   );
 };
-
 export default Logout;

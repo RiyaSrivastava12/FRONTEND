@@ -8,6 +8,9 @@ import { createStore, applyMiddleware, compose } from "redux";
 import rootReducer from "./reducers/rootreducer";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
+import '@fortawesome/fontawesome-free/css/all.min.css'; import
+'bootstrap-css-only/css/bootstrap.min.css'; import
+'mdbreact/dist/css/mdb.css';
 // Persisting store
 import { persistStore,persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage"; // defaults to localStorage for web

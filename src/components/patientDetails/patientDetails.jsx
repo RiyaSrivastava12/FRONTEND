@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+
 class PatientPersonalDetails extends React.Component {
-  state={
+  state = {
     patientpersonaldetails: [],
   };
   // class component life cycle methods
@@ -29,21 +31,24 @@ class PatientPersonalDetails extends React.Component {
       .then((res) => {
         console.log(res);
         // Update front end parallely
-        const patientPersonalDetails = this.state.patientpersonaldetails.filter((s) => s.pId != pId);
+        const patientPersonalDetails = this.state.patientpersonaldetails.filter(
+          (s) => s.pId != pId
+        );
         this.setState({ patientpersonaldetails: patientPersonalDetails });
         alert(res.data.pName + " deleted succussfully!");
       })
       .catch((err) => console.log(err));
   };
-  
-  
- 
 
   render() {
     return (
       <div className="w-75 mx-auto">
         <Link to="/patient/add" className="btn btn-info float-end">
           Add
+        </Link>
+        <Link to="/admin" className="btn btn-dark float-start">
+          <ArrowBackIcon />
+          Admin
         </Link>
         <table className="table w-75 mx-auto">
           <thead>
@@ -69,16 +74,19 @@ class PatientPersonalDetails extends React.Component {
                 <td>{p.address}</td>
                 <td>{p.symptoms}</td>
                 <td>
-                <Link
+                  <Link
                     to={`/patient/update/${p.pId}`}
                     className="btn btn-primary"
                   >
                     Update
                   </Link>
-                <button className="btn btn-danger" onClick={()=>this.handleDelete(p.pId)}>Delete</button>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => this.handleDelete(p.pId)}
+                  >
+                    Delete
+                  </button>
                 </td>
-                  
-                
               </tr>
             ))}
           </tbody>
@@ -87,5 +95,5 @@ class PatientPersonalDetails extends React.Component {
     );
   }
 }
- 
+
 export default PatientPersonalDetails;
