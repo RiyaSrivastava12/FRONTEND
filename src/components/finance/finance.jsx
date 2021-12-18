@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 class Finance extends React.Component {
@@ -65,7 +66,8 @@ class Finance extends React.Component {
               <th>Doctor Fees</th>
               <th>Registeration Fees</th>
               <th>Medical Amount</th>
-              <th>Action</th>
+              {this.props.login.loggedIn &&
+                this.props.login.role === "admin" && <th>Actions</th>}
             </tr>
           </thead>
           <tbody>
@@ -75,6 +77,7 @@ class Finance extends React.Component {
                 <td>{s.docFees}</td>
                 <td>{s.regFees}</td>
                 <td>{s.medAmount}</td>
+                {this.props.login.loggedIn && this.props.login.role == "admin" && (
                 <td>
                   <Link
                     to={`/finance/update/${s.bId}`}
@@ -99,6 +102,7 @@ class Finance extends React.Component {
                     delete
                   </button>
                 </td>
+                )}
               </tr>
             ))}
           </tbody>
@@ -108,4 +112,11 @@ class Finance extends React.Component {
   }
 }
 
-export default Finance;
+// funtion to get updates from store
+const mapStateToProps = (state) => {
+  return {
+    login: state.login,
+  };
+};
+
+export default connect(mapStateToProps)(Finance);

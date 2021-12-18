@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 class PatientPersonalDetails extends React.Component {
@@ -60,7 +61,8 @@ class PatientPersonalDetails extends React.Component {
               <th>Gender</th>
               <th>Address</th>
               <th>Symptoms</th>
-              <th>Actions</th>
+              {this.props.login.loggedIn &&
+                this.props.login.role === "admin" && <th>Actions</th>}
             </tr>
           </thead>
           <tbody>
@@ -73,6 +75,7 @@ class PatientPersonalDetails extends React.Component {
                 <td>{p.gender}</td>
                 <td>{p.address}</td>
                 <td>{p.symptoms}</td>
+                {this.props.login.loggedIn && this.props.login.role == "admin" && (
                 <td>
                   <Link
                     to={`/patient/update/${p.pId}`}
@@ -87,6 +90,7 @@ class PatientPersonalDetails extends React.Component {
                     Delete
                   </button>
                 </td>
+                )}
               </tr>
             ))}
           </tbody>
@@ -96,4 +100,12 @@ class PatientPersonalDetails extends React.Component {
   }
 }
 
-export default PatientPersonalDetails;
+
+// funtion to get updates from store
+const mapStateToProps = (state) => {
+  return {
+    login: state.login,
+  };
+};
+
+export default connect(mapStateToProps)(PatientPersonalDetails);

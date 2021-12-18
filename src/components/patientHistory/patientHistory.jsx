@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 class PatientHistory extends React.Component {
   state = {
@@ -51,7 +52,8 @@ class PatientHistory extends React.Component {
               <th>Disease</th>
               <th>Doctor_Advice</th>
               <th>Diet</th>
-              <th>Actions</th>
+              {this.props.login.loggedIn &&
+                this.props.login.role === "admin" && <th>Actions</th>}
             </tr>
           </thead>
           <tbody>
@@ -61,6 +63,7 @@ class PatientHistory extends React.Component {
                 <td>{d.disease}</td>
                 <td>{d.dAdvice}</td>
                 <td>{d.diet}</td>
+                {this.props.login.loggedIn && this.props.login.role == "admin" && (
                 <td>
                   <Link
                     to={`/patientHistories/update/${d.id}`}
@@ -75,6 +78,7 @@ class PatientHistory extends React.Component {
                     Delete
                   </button>
                 </td>
+                )}
               </tr>
             ))}
           </tbody>
@@ -84,4 +88,11 @@ class PatientHistory extends React.Component {
   }
 }
 
-export default PatientHistory;
+// funtion to get updates from store
+const mapStateToProps = (state) => {
+  return {
+    login: state.login,
+  };
+};
+
+export default connect(mapStateToProps)(PatientHistory);

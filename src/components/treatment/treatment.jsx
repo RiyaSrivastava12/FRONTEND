@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 class Treatment extends React.Component {
   state = {
@@ -45,7 +46,8 @@ class Treatment extends React.Component {
               <th>Reports</th>
               <th>Medicines</th>
               <th>Description</th>
-              <th>Actions</th>
+              {this.props.login.loggedIn &&
+                this.props.login.role === "admin" && <th>Actions</th>}
             </tr>
           </thead>
           <tbody>
@@ -78,4 +80,11 @@ class Treatment extends React.Component {
   }
 }
 
-export default Treatment;
+// funtion to get updates from store
+const mapStateToProps = (state) => {
+  return {
+    login: state.login,
+  };
+};
+
+export default connect(mapStateToProps)(Treatment);
