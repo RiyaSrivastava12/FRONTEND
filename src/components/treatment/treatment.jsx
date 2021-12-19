@@ -35,9 +35,9 @@ class Treatment extends React.Component {
   render() {
     return (
       <div className="w-75 mx-auto shadow p-3 mb-5 bg-body rounded">
-      <Link to="/treatments/add" className="btn btn-info float-end">
-      Add
-    </Link>
+        <Link to="/treatments/add" className="btn btn-info float-end">
+          Add
+        </Link>
 
         <table className="table w-75 mx-auto shadow-sm p-3 mb-5 bg-body rounded ">
           <thead>

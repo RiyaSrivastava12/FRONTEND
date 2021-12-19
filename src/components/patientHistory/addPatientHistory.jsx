@@ -5,11 +5,10 @@ import Joi from "joi-browser";
 class AddPatientHistory extends React.Component {
   state = {
     patientHistory: {
-        disease: "",
-        dAdvice: "",
-        diet: "",
-        
-      },
+      disease: "",
+      dAdvice: "",
+      diet: "",
+    },
     errors: {},
     errMsg: "",
   };
@@ -65,7 +64,9 @@ class AddPatientHistory extends React.Component {
       .then((res) => {
         console.log(res.data);
         alert(
-          "Added Patient History " + this.state.patientHistory.dname + " successfully!"
+          "Added Patient History " +
+            this.state.patientHistory.id +
+            " successfully!"
         );
         this.props.history.push("/patientHistories");
       })
@@ -78,7 +79,7 @@ class AddPatientHistory extends React.Component {
 
   render() {
     // Object Destructuring
-    const { disease, dAdvice, diet} = this.state.patientHistory;
+    const { disease, dAdvice, diet } = this.state.patientHistory;
     const { errors, errMsg } = this.state;
     return (
       <div className="w-50 mx-auto ">
@@ -92,56 +93,54 @@ class AddPatientHistory extends React.Component {
           onSubmit={this.handleSubmit}
           className="shadow p-3 mb-5 bg-body rounded mt-3"
         >
-        <div className="mb-3">
-        <label htmlFor="disease" className="form-label">
-          Disease
-        </label>
-        <input
-          type="text"
-          className="form-control"
-          id="disease"
-          aria-describedby="emailHelp"
-          value={disease}
-          name="disease"
-          onChange={this.handleChange}
-        />
-        {errors && <small>{errors.disease}</small>}
-      </div>
-            
-          
-      <div className="mb-3">
-      <label htmlFor="dAdvice" className="form-label">
-        Doctor Advice
-      </label>
-      <input
-        type="text"
-        className="form-control"
-        id="dAdvice"
-        aria-describedby="emailHelp"
-        value={dAdvice}
-        name="dAdvice"
-        onChange={this.handleChange}
-      />
-      {errors && <small>{errors.dAdvice}</small>}
-    </div>
-            
-         
-    <div className="mb-3">
-    <label htmlFor="diet" className="form-label">
-     Diet
-    </label>
-    <input
-      type="text"
-      className="form-control"
-      id="diet"
-      aria-describedby="emailHelp"
-      value={diet}
-      name="diet"
-      onChange={this.handleChange}
-    />
-    {errors && <small>{errors.diet}</small>}
-  </div>
-            
+          <div className="mb-3">
+            <label htmlFor="disease" className="form-label">
+              Disease
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="disease"
+              aria-describedby="emailHelp"
+              value={disease}
+              name="disease"
+              onChange={this.handleChange}
+            />
+            {errors && <small>{errors.disease}</small>}
+          </div>
+
+          <div className="mb-3">
+            <label htmlFor="dAdvice" className="form-label">
+              Doctor Advice
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="dAdvice"
+              aria-describedby="emailHelp"
+              value={dAdvice}
+              name="dAdvice"
+              onChange={this.handleChange}
+            />
+            {errors && <small>{errors.dAdvice}</small>}
+          </div>
+
+          <div className="mb-3">
+            <label htmlFor="diet" className="form-label">
+              Diet
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="diet"
+              aria-describedby="emailHelp"
+              value={diet}
+              name="diet"
+              onChange={this.handleChange}
+            />
+            {errors && <small>{errors.diet}</small>}
+          </div>
+
           <div className="d-grid gap-2 mt-3">
             <button type="submit" className="btn btn-primary">
               Submit

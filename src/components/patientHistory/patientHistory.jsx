@@ -18,12 +18,6 @@ class PatientHistory extends React.Component {
       })
       .catch((err) => console.log(err));
   }
-  componentDidUpdate() {
-    console.log("componentDidUpdate");
-  }
-  componentWillUnmount() {
-    console.log("componentWillUnmount");
-  }
 
   handleDelete = (id) => {
     axios
@@ -31,9 +25,11 @@ class PatientHistory extends React.Component {
       .then((res) => {
         console.log(res);
         // Update front end parallely
-        const patientHistories = this.state.patientHistories.filter((d) => d.id != id);
+        const patientHistories = this.state.patientHistories.filter(
+          (d) => d.id != id
+        );
         this.setState({ patientHistories: patientHistories });
-        alert(res.data.id + " deleted succussfully!");
+        alert(id + " deleted succussfully!");
       })
       .catch((err) => console.log(err));
   };
@@ -41,9 +37,9 @@ class PatientHistory extends React.Component {
   render() {
     return (
       <div className="w-75 mx-auto shadow p-3 mb-5 bg-body rounded">
-      <Link to="/patientHistories/add" className="btn btn-info float-end">
-      Add
-    </Link>
+        <Link to="/patientHistories/add" className="btn btn-info float-end">
+          Add
+        </Link>
 
         <table className="table w-75 mx-auto shadow-sm p-3 mb-5 bg-body rounded ">
           <thead>
@@ -64,20 +60,20 @@ class PatientHistory extends React.Component {
                 <td>{d.dAdvice}</td>
                 <td>{d.diet}</td>
                 {this.props.login.loggedIn && this.props.login.role == "admin" && (
-                <td>
-                  <Link
-                    to={`/patientHistories/update/${d.id}`}
-                    className="btn btn-primary"
-                  >
-                    Update
-                  </Link>
-                  <button
-                    className="btn btn-danger"
-                    onClick={() => this.handleDelete(d.id)}
-                  >
-                    Delete
-                  </button>
-                </td>
+                  <td>
+                    <Link
+                      to={`/patientHistories/update/${d.id}`}
+                      className="btn btn-primary"
+                    >
+                      Update
+                    </Link>
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => this.handleDelete(d.id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
                 )}
               </tr>
             ))}

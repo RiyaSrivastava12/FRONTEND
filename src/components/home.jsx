@@ -19,7 +19,6 @@ class Home extends React.Component {
                 width="100%"
                 height="450"
               />
-              
             </div>
             <div class="carousel-item">
               <img
@@ -28,9 +27,15 @@ class Home extends React.Component {
                 width="100%"
                 height="450"
               />
-              <div class="carousel-caption" style={{textAlign: "left"}}>
-                <h3 style={{color:"black"}}> <strong>Hope Lives Here </strong></h3>
-                <h3 style={{color:"black"}}> <strong>The Most Experienced Hospital</strong></h3>
+              <div class="carousel-caption" style={{ textAlign: "left" }}>
+                <h3 style={{ color: "black" }}>
+                  {" "}
+                  <strong>Hope Lives Here </strong>
+                </h3>
+                <h3 style={{ color: "black" }}>
+                  {" "}
+                  <strong>The Most Experienced Hospital</strong>
+                </h3>
                 <p>The hospital you trust to care for those you love.</p>
               </div>
             </div>
@@ -41,9 +46,17 @@ class Home extends React.Component {
                 width="100%"
                 height="450"
               />
-              <div class="carousel-caption" style={{textAlign: "left" , color:"black"}}>
-                <h2><strong>Finest Clinical Team</strong></h2>
-                <p style={{fontSize:"25px"}}>Combining years of Experience , hightest skills <br/>and the latest in medical science,for your speedy recovery.</p>
+              <div
+                class="carousel-caption"
+                style={{ textAlign: "left", color: "black" }}
+              >
+                <h2>
+                  <strong>Finest Clinical Team</strong>
+                </h2>
+                <p style={{ fontSize: "25px" }}>
+                  Combining years of Experience , hightest skills <br />
+                  and the latest in medical science,for your speedy recovery.
+                </p>
               </div>
             </div>
           </div>
@@ -73,8 +86,9 @@ class Home extends React.Component {
 
                   <h5>Newest Technologies</h5>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Donec ut erat nec leo lobortis blandit.
+                    The pandemic forced healthcare into the
+                    future, and, as a result, several promising medical
+                    technologies were tested.
                   </p>
                 </div>
               </div>
@@ -84,8 +98,8 @@ class Home extends React.Component {
                   <i class="fas fa-user-md"></i>
                   <h5>Experianced Doctors</h5>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Donec ut erat nec leo lobortis blandit.
+                    Doctors experience great fulfillment in using their medical
+                    knowledge and skills to improve the lives of their patients.
                   </p>
                 </div>
               </div>
@@ -95,8 +109,8 @@ class Home extends React.Component {
                   <i class="fas fa-briefcase-medical"></i>
                   <h5>High Customer Satisfaction</h5>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Donec ut erat nec leo lobortis blandit.
+                    Patient satisfaction is an important and commonly used
+                    indicator for measuring the quality in health care.
                   </p>
                 </div>
               </div>
@@ -106,8 +120,8 @@ class Home extends React.Component {
                   <i class="fas fa-capsules"></i>
                   <h5>Pharma Pipeline</h5>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Donec ut erat nec leo lobortis blandit.
+                    The hospital pharmacist manage all Medical Device and so is
+                    responsible also for Med. Dev.
                   </p>
                 </div>
               </div>
@@ -117,8 +131,8 @@ class Home extends React.Component {
                   <i class="fas fa-prescription-bottle-alt"></i>
                   <h5>Pharma Team</h5>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Donec ut erat nec leo lobortis blandit.
+                    TEAM has a portfolio of tablet, capsule, and powder products
+                    that are ideal for use in equipment performance testing
                   </p>
                 </div>
               </div>
@@ -128,8 +142,8 @@ class Home extends React.Component {
                   <i class="fas fa-thumbs-up"></i>
                   <h5>High Quality treatments</h5>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Donec ut erat nec leo lobortis blandit.
+                    Hospitals complement and amplify the effectiveness of many
+                    other parts of the health system.
                   </p>
                 </div>
               </div>

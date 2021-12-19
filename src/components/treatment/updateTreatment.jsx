@@ -4,16 +4,14 @@ import axios from "axios";
 class UpdateTreatment extends React.Component {
   state = {
     treatment: {
-        reports: "",
-        medicines: "",
-        description: "",
-      },
+      reports: "",
+      medicines: "",
+      description: "",
+    },
   };
   componentDidMount() {
     axios
-      .get(
-        `http://localhost:8080/treatments/${this.props.match.params.tid}`
-      )
+      .get(`http://localhost:8080/treatments/${this.props.match.params.tid}`)
       .then((res) => {
         console.log(res.data);
         this.setState({ treatment: res.data });
@@ -57,7 +55,7 @@ class UpdateTreatment extends React.Component {
   };
   render() {
     // Object Destructuring
-    const { reports, medicines, description} = this.state.treatment;
+    const { reports, medicines, description } = this.state.treatment;
 
     return (
       <div>
@@ -96,7 +94,7 @@ class UpdateTreatment extends React.Component {
 
           <div className="mb-3">
             <label htmlFor="description" className="form-label">
-            Description
+              Description
             </label>
             <input
               type="text"

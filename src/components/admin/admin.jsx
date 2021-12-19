@@ -68,7 +68,7 @@ class Admin extends React.Component {
             <div class="col-md-4 col-sm-6">
               <div class="single-key">
               <img src="images/patient.jpg" class="card-img-top" alt="..." style={{height: "280px"}}/>
-              <h5>Manage Patients Details Here</h5>
+              <h5>Manage Patients Details and Policy Details Here</h5>
                  
               <Button
                     color="inherit"

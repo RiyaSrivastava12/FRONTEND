@@ -32,7 +32,6 @@ class AddTreatments extends React.Component {
     return Object.keys(errors).length === 0 ? null : errors;
   };
   handleChange = (event) => {
-
     // copy state treatment object to local variable treatment
     const treatment = { ...this.state.treatment };
 

@@ -30,12 +30,13 @@ class Insurance extends React.Component {
   render() {
     console.log(this.state.insurances);
     return (
-      <div className="w-75 mx-auto">
+      <div className="w-75 mx-auto" style={{boxShadow:
+        "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)"}}>
         <Link to="/addinsurance" className="btn btn-info float-end">
           Add
         </Link>
-        <table className="table w-75 mx-auto">
-          <thead>
+        <table className="table w-60 mx-auto table-striped">
+          <thead className="table-info">
             <tr>
               <th>PolicyNumber</th>
               <th>PolicyNAME</th>

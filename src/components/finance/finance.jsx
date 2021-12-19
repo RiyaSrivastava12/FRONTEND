@@ -42,7 +42,7 @@ class Finance extends React.Component {
   };
   render() {
     return (
-      <div className="table w-50 mx-auto">
+      <div className="table w-50 mx-auto" >
         <Link to="/admin" className="btn btn-dark float-start mt-3 mb-3">
           <ArrowBackIcon />
           Admin

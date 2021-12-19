@@ -15,8 +15,19 @@ const Logout = () => {
   }, []);
 
   return (
-    <div>
-      <Typography variant="h3">Logged out successfully!!</Typography>
+    <div
+      className=" w-50 mx-auto"
+      style={{
+        marginTop: "10%",
+        height: "150px",
+        textAlign: "center",
+        boxShadow:
+          "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
+      }}
+    >
+      <Typography variant="h3">
+        Logged out <br /> successfully!!
+      </Typography>
     </div>
   );
 };

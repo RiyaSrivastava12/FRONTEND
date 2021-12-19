@@ -88,6 +88,54 @@ class AdminPatient extends React.Component {
           </div>
         </div>
       </section>
+
+
+      {/* .................................Health Insurance.........................................*/ }
+
+      <section class="key-features">
+          <div class="container">
+            <div class="inner-title">
+              <h2 style={{ textAlign: "center" }}> Health Insurance Policy</h2>
+              <p style={{ textAlign: "center" }}>
+                
+              </p>
+            </div>
+
+            
+            
+                <div class="single-key"  style={{backgroundImage:"url('images/admin1.jpg')" , color:"white"}}>
+                <i class="fas fa-hospital-user"></i>
+                <h5>
+                   <Button
+                    color="inherit"
+                    to="/insurance"
+                    component={NavLink}
+                    style={{ marginRight: "auto" }}
+                  >
+                    <Typography
+                      gutterBottom
+                      variant="subtitle2"
+                      component="div"
+                    >
+                    <h5 class="card-title bg-dark" style={{height: "30px", textAlign: "center", color: "white"}}> Click </h5>
+                    </Typography>
+                  </Button>
+                  </h5>
+                  <h4>
+                  It’s often said that your health is your wealth. And with the same belief, <br/>
+                   we make it our mission to ensure that your health is never compromised.
+                  </h4>
+                  
+                  
+                </div>
+             
+           
+
+
+          </div>
+        </section>
+
+
       </div>
     );
   }

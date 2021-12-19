@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 class PatientPersonalDetails extends React.Component {
   state = {
@@ -76,20 +76,20 @@ class PatientPersonalDetails extends React.Component {
                 <td>{p.address}</td>
                 <td>{p.symptoms}</td>
                 {this.props.login.loggedIn && this.props.login.role == "admin" && (
-                <td>
-                  <Link
-                    to={`/patient/update/${p.pId}`}
-                    className="btn btn-primary"
-                  >
-                    Update
-                  </Link>
-                  <button
-                    className="btn btn-danger"
-                    onClick={() => this.handleDelete(p.pId)}
-                  >
-                    Delete
-                  </button>
-                </td>
+                  <td>
+                    <Link
+                      to={`/patient/update/${p.pId}`}
+                      className="btn btn-primary"
+                    >
+                      Update
+                    </Link>
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => this.handleDelete(p.pId)}
+                    >
+                      Delete
+                    </button>
+                  </td>
                 )}
               </tr>
             ))}
@@ -99,7 +99,6 @@ class PatientPersonalDetails extends React.Component {
     );
   }
 }
-
 
 // funtion to get updates from store
 const mapStateToProps = (state) => {

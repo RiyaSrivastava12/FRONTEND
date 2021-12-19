@@ -25,31 +25,6 @@ class Login extends React.Component {
       password: "",
       role: "",
     },
-    errors: {},
-    errMsg: "",
-  };
-
-  // define schema to validate input field values
-  schema = {
-    email: Joi.string().min(3).max(20).required(),
-   password: Joi.string().min(3).max(20).required(),
-    role: Joi.string().min(1).max(20).required(),
-  };
-  // Step 3: Validate user input with schema
-  validate = () => {
-    const errors = {};
-    const result = Joi.validate(this.state.login, this.schema, {
-      abortEarly: false,
-    });
-    console.log(result);
-    // setting error messages to error properties
-    // ex: errors[username] = "username is required";
-    // ex: errors[password] = "password is required";
-    if (result.error != null)
-      for (let item of result.error.details) {
-        errors[item.path[0]] = item.message;
-      }
-    return Object.keys(errors).length === 0 ? null : errors;
   };
 
   handleChange = (event) => {
@@ -69,7 +44,6 @@ class Login extends React.Component {
     }
   };
   render() {
-    const { errors, errMsg } = this.state;
     return (
       <div
         style={{
@@ -97,9 +71,10 @@ class Login extends React.Component {
               value={this.state.email}
               name="email"
               onChange={this.handleChange}
+              pattern="[a-z]@[a-z]{1,4}.com"
               required
             />
-             {errors && <small>{errors.email}</small>}
+
             <TextField
               id="filled-basic"
               label="Password"
@@ -112,7 +87,7 @@ class Login extends React.Component {
               onChange={this.handleChange}
               required
             />
-             {errors && <small>{errors.password}</small>}
+
             <FormControl variant="filled" fullWidth>
               <InputLabel id="demo-simple-select-filled-label">Role</InputLabel>
               <Select

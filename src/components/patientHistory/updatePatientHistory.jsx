@@ -4,10 +4,9 @@ import axios from "axios";
 class UpdatePatientHistory extends React.Component {
   state = {
     patientHistory: {
-        disease: "",
-        dAdvice: "",
-        diet: "",
-      
+      disease: "",
+      dAdvice: "",
+      diet: "",
     },
   };
   componentDidMount() {
@@ -22,7 +21,6 @@ class UpdatePatientHistory extends React.Component {
       .catch((err) => console.log(err));
   }
   handleChange = (event) => {
-
     // copy state patientHistory object to local variable patientHistory
     const patientHistory = { ...this.state.patientHistory };
 
@@ -44,7 +42,9 @@ class UpdatePatientHistory extends React.Component {
       .then((res) => {
         console.log(res.data);
         alert(
-          "Updated patientHistory " + this.state.patientHistory.id + " successfully!"
+          "Updated patientHistory " +
+            this.state.patientHistory.id +
+            " successfully!"
         );
         this.props.history.push("/patientHistories");
       })
@@ -52,7 +52,7 @@ class UpdatePatientHistory extends React.Component {
   };
   render() {
     // Object Destructuring
-    const { disease, dAdvice, diet} = this.state.patientHistory;
+    const { disease, dAdvice, diet } = this.state.patientHistory;
 
     return (
       <div>
@@ -91,7 +91,7 @@ class UpdatePatientHistory extends React.Component {
 
           <div className="mb-3">
             <label htmlFor="qualification" className="form-label">
-             Diet
+              Diet
             </label>
             <input
               type="text"
@@ -103,7 +103,7 @@ class UpdatePatientHistory extends React.Component {
               onChange={this.handleChange}
             />
           </div>
-          
+
           <div className="d-grid gap-2 mt-3">
             <button type="submit" className="btn btn-primary">
               Submit

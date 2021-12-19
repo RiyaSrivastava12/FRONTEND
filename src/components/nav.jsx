@@ -45,18 +45,10 @@ const Nav = () => {
                   &nbsp; Home
                 </NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" exact to="/insurance">
-                  <i class="fas fa-users" />
-                  &nbsp; Insurance-Policy
-                </NavLink>
-              </li>
-              
-              
-              
+
               <li className="nav-item">
                 <NavLink className="nav-link" exact to="/contact">
-                  <i class="fas fa-book-open" />
+                  <i class="far fa-address-book"></i>
                   Contact Us
                 </NavLink>
               </li>
@@ -68,7 +60,6 @@ const Nav = () => {
                   <NavLink className="nav-link" exact to="/logout">
                     <i class="fas fa-sign-in-alt" />
                     &nbsp; Logout
-                    
                   </NavLink>
                 </li>
               ) : (
@@ -76,7 +67,6 @@ const Nav = () => {
                   <NavLink className="nav-link" exact to="/login">
                     <i class="fas fa-user-plus" />
                     &nbsp; Login
-                    
                   </NavLink>
                 </li>
               )}
